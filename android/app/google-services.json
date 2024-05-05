@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "101414654781",
+    "firebase_url": "https://superapp-ee4e1-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "superapp-ee4e1",
+    "storage_bucket": "superapp-ee4e1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:101414654781:android:598f08fd6e9a1c1b0a6b54",
+        "android_client_info": {
+          "package_name": "com.example.flutter_superapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWRe37u01b_8xVqC5_QHbqYIWVPKR0FrA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:101414654781:android:2733aa2e4a6a835f0a6b54",
+        "android_client_info": {
+          "package_name": "com.example.flutter_superapp2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWRe37u01b_8xVqC5_QHbqYIWVPKR0FrA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

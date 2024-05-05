@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyDEG62UR5GV0S8guKfJT0ZCWcb4CouG48o</string>
+	<key>GCM_SENDER_ID</key>
+	<string>101414654781</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.flutterSuperapp2</string>
+	<key>PROJECT_ID</key>
+	<string>superapp-ee4e1</string>
+	<key>STORAGE_BUCKET</key>
+	<string>superapp-ee4e1.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:101414654781:ios:0c8e74386988eda10a6b54</string>
+	<key>DATABASE_URL</key>
+	<string>https://superapp-ee4e1-default-rtdb.asia-southeast1.firebasedatabase.app</string>
+</dict>
+</plist>
