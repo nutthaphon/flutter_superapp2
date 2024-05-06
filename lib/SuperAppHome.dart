@@ -32,7 +32,7 @@ class SuperAppHome extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text('Welcome, ${user.email}!'),
+            Text('Welcome, ${user.uid}!'),
             SizedBox(height: 20),
             ElevatedButton(
               child: Text('Go to Mini App'),
