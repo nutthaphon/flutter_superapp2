@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'SuperAppHome.dart'; // Your home screen after successful login.
 
 class SuperAppLogin extends StatefulWidget {
@@ -66,6 +67,16 @@ class _SuperAppLoginState extends State<SuperAppLogin> {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.white,
                   foregroundColor: Colors.black,
+                  minimumSize: Size(double.infinity, 50),
+                ),
+              ),
+              // Facebook Sign-In Button
+              ElevatedButton(
+                onPressed: _signInWithFacebook,
+                child: Text('Sign in with Facebook'),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blue,
+                  foregroundColor: Colors.white,
                   minimumSize: Size(double.infinity, 50),
                 ),
               ),
@@ -146,6 +157,29 @@ class _SuperAppLoginState extends State<SuperAppLogin> {
       }
     } catch (e) {
       _showErrorDialog(e.toString());
+    }
+  }
+
+  Future<void> _signInWithFacebook() async {
+    try {
+      final LoginResult result = await FacebookAuth.instance.login();
+      if (result.status == LoginStatus.success) {
+        final AccessToken accessToken = result.accessToken!;
+        final OAuthCredential credential = FacebookAuthProvider.credential(accessToken.token);
+        final UserCredential userCredential = await _auth.signInWithCredential(credential);
+        final User? user = userCredential.user;
+
+        if (user != null) {
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => SuperAppHome(user: user)),
+          );
+        }
+      } else {
+        _showErrorDialog('Facebook login failed: ${result.status}');
+      }
+    } catch (e) {
+      _showErrorDialog('Failed to sign in with Facebook: $e');
     }
   }
 
