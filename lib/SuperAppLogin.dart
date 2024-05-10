@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
+
 import 'SuperAppHome.dart'; // Your home screen after successful login.
 
 class SuperAppLogin extends StatefulWidget {
@@ -16,6 +18,21 @@ class _SuperAppLoginState extends State<SuperAppLogin> {
   final TextEditingController _phoneController = TextEditingController();
   final TextEditingController _smsController = TextEditingController();
   String? _verificationId;
+  
+  String _fid = 'Unknown';
+
+  @override
+  void initState() {
+    super.initState();
+    _getFID();
+  }
+
+  Future<void> _getFID() async {
+    String? fid = await FirebaseMessaging.instance.getToken();
+    setState(() {
+      _fid = fid ?? 'No FID found';
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -80,6 +97,7 @@ class _SuperAppLoginState extends State<SuperAppLogin> {
                   minimumSize: Size(double.infinity, 50),
                 ),
               ),
+              Text('FID: $_fid'),
             ],
           ),
         ),
