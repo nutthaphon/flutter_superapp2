@@ -97,7 +97,24 @@ class _SuperAppLoginState extends State<SuperAppLogin> {
                   minimumSize: Size(double.infinity, 50),
                 ),
               ),
-              Text('FID: $_fid'),
+              FutureBuilder<String?>(
+          future: FirebaseMessaging.instance.getToken(),
+          builder: (BuildContext context, AsyncSnapshot<String?> snapshot) {
+            // Check if the future is resolved
+            if (snapshot.connectionState == ConnectionState.done) {
+              // Check if the snapshot has data
+              if (snapshot.hasData) {
+                // Display the FCM token
+                return SelectableText('FCM Token: ${snapshot.data}', textAlign: TextAlign.center);
+              } else if (snapshot.hasError) {
+                // If there was an error fetching the token, display the error
+                return Text('Error fetching FCM token: ${snapshot.error}');
+              }
+            }
+            // By default, show a loading spinner while the token is being fetched
+            return CircularProgressIndicator();
+          },
+        ),
             ],
           ),
         ),
